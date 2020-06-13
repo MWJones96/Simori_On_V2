@@ -6,7 +6,7 @@ package Simori_On_V2
 class App {
     val greeting: String
         get() {
-            return "Hello world."
+            return "Hello Matt."
         }
 }
 
