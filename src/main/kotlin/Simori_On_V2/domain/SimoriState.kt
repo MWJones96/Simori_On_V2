@@ -1,3 +1,13 @@
-class SimoriState(test: String) {
-    val dummy = test.toUpperCase()
+package Simori_On_V2.domain
+
+class SimoriState {
+    var dummy: Int? = null
+
+    constructor() {
+        initialize()
+    }
+
+    fun initialize() {
+        this.dummy = 10
+    }
 }
