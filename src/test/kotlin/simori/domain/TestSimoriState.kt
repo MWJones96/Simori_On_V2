@@ -5,8 +5,8 @@ import kotlin.test.*
 
 class TestSimoriState {
     @Test 
-    fun testConstruction() {
+    fun testSimoriNotNull() {
         val simoriState: SimoriState = SimoriState()
-        assertEquals(simoriState.dummy, 10, "All good!")
+        assertNotNull(simoriState, "SimoriState instance should not be null")
     }
 }
