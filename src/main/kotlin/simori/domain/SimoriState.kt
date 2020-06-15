@@ -1,4 +1,4 @@
-package Simori_On_V2.domain
+package simori.domain
 
 class SimoriState {
     var dummy: Int? = null

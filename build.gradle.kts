@@ -34,5 +34,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = "Simori_On_V2.AppKt"
+    mainClassName = "simori.AppKt"
 }
