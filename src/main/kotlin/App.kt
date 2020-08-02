@@ -3,11 +3,13 @@ import tornadofx.*
 class SimoriOnApp: App(MyView::class)
 
 class MyView: View("SimoriON") {
+    val simoriState: SimoriState = SimoriState()
+
     override val root = vbox {
 
         button("ON/OFF") {
             action {
-                println("ON/OFF press")
+                simoriState.OnOffPress()
             }
         }
 
@@ -16,22 +18,22 @@ class MyView: View("SimoriON") {
             vbox {
                 button("L1") {
                     action {
-                        println("L1 press")
+                        simoriState.L1Press()
                     }
                 }
                 button("L2") {
                     action {
-                        println("L2 press")
+                        simoriState.L2Press()
                     }
                 }
                 button("L3") {
                     action {
-                        println("L3 press")
+                        simoriState.L3Press()
                     }
                 }
                 button("L4") {
                     action {
-                        println("L4 press")
+                        simoriState.L4Press()
                     }
                 }
             }
@@ -42,7 +44,7 @@ class MyView: View("SimoriON") {
                         for (col_num in 0..15) {
                             button("") {
                                 action {
-                                    println("$row_num, $col_num grid press")
+                                    simoriState.GridPress(row_num, col_num)
                                 }
                             }.setPrefSize(32.0, 32.0)
                         }
@@ -53,22 +55,22 @@ class MyView: View("SimoriON") {
             vbox {
                 button("R1") {
                     action {
-                        println("R1 press")
+                        simoriState.R1Press()
                     }
                 }
                 button("R2") {
                     action {
-                        println("R2 press")
+                        simoriState.R2Press()
                     }
                 }
                 button("R3") {
                     action {
-                        println("R3 press")
+                        simoriState.R3Press()
                     }
                 }
                 button("R4") {
                     action {
-                        println("R4 press")
+                        simoriState.R4Press()
                     }
                 }
             }
@@ -78,7 +80,7 @@ class MyView: View("SimoriON") {
             label("Display")
             button("OK") {
                 action {
-                    println("OK press")
+                    simoriState.OKPress()
                 }
             }
         }
