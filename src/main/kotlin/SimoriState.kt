@@ -1,48 +1,52 @@
 class SimoriState {
-    val currentLayer = 0
-    val simoriMode: SimoriMode = SimoriMode()
+    var currentLayer = 0
+    var simoriMode: SimoriMode = OnOffMode()
+
+    fun switchMode(simoriMode: SimoriMode) {
+        this.simoriMode = simoriMode
+    }
 
     fun GridPress(row: Int, col: Int) {
-        println("($row, $col) press")
+        simoriMode.GridPress(this, row, col)
     }
 
     fun OnOffPress() {
-        println("On/Off press")
+        simoriMode.OnOffPress(this)
     }
 
     fun OKPress() {
-        println("OK press")
+        simoriMode.OKPress(this)
     }
 
     fun L1Press() {
-        println("L1 press")
+        simoriMode.L1Press(this)
     }
 
     fun L2Press() {
-        println("L2 press")
+        simoriMode.L2Press(this)
     }
 
     fun L3Press() {
-        println("L3 press")
+        simoriMode.L3Press(this)
     }
 
     fun L4Press() {
-        println("L4 press")
+        simoriMode.L4Press(this)
     }
 
     fun R1Press() {
-        println("R1 press")
+        simoriMode.R1Press(this)
     }
 
     fun R2Press() {
-        println("R2 press")
+        simoriMode.R2Press(this)
     }
 
     fun R3Press() {
-        println("R3 press")
+        simoriMode.R3Press(this)
     }
 
     fun R4Press() {
-        println("R4 press")
+        simoriMode.R4Press(this)
     }
 }
