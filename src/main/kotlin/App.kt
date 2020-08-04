@@ -1,4 +1,5 @@
 import tornadofx.*
+import java.awt.Color
 
 class SimoriOnApp: App(MyView::class)
 
@@ -43,6 +44,7 @@ class MyView: View("SimoriON") {
                     row {
                         for (col_num in 0..15) {
                             button("") {
+                                style = "-fx-background-radius: 256;"
                                 action {
                                     simoriState.GridPress(row_num, col_num)
                                 }
