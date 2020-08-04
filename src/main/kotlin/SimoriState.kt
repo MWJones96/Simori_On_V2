@@ -1,6 +1,7 @@
 class SimoriState {
     var currentLayer = 0
     var simoriMode: SimoriMode = OnOffMode()
+    var display: Array<BooleanArray> = Array(16) { BooleanArray(16) }
 
     fun switchMode(simoriMode: SimoriMode) {
         this.simoriMode = simoriMode

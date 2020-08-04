@@ -1,3 +1,4 @@
+import javafx.collections.FXCollections
 import tornadofx.*
 import java.awt.Color
 
@@ -5,6 +6,7 @@ class SimoriOnApp: App(MyView::class)
 
 class MyView: View("SimoriON") {
     val simoriState: SimoriState = SimoriState()
+    val gridArray = FXCollections.observableArrayList(simoriState.display)
 
     override val root = vbox {
 
