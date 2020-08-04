@@ -7,6 +7,14 @@ class SimoriState {
         this.simoriMode = simoriMode
     }
 
+    fun resetDisplay() {
+        for (row in 0..15) {
+            for (col in 0..15) {
+                display[row][col] = false
+            }
+        }
+    }
+
     fun GridPress(row: Int, col: Int) {
         simoriMode.GridPress(this, row, col)
     }

@@ -1,5 +1,8 @@
 import javafx.beans.binding.Bindings
+import javafx.beans.binding.BooleanExpression
+import javafx.beans.property.BooleanProperty
 import javafx.beans.property.SimpleBooleanProperty
+import javafx.beans.value.ObservableBooleanValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.geometry.Pos
@@ -48,18 +51,19 @@ class MyView: View("SimoriON") {
                 }.setPrefSize(48.0, 48.0)
             }
 
-            println(simoriState.display[0].size)
-
             gridpane {
                 for (row_num in 0..15) {
                     row {
                         for (col_num in 0..15) {
-                            button("") {
+                            val gridButton = button("") {
                                 style = "-fx-background-radius: 256;"
                                 action {
                                     simoriState.GridPress(row_num, col_num)
                                 }
-                            }.setPrefSize(32.0, 32.0)
+                            }
+
+                            gridButton.setPrefSize(32.0, 32.0)
+                            gridButton.bind(SimpleBooleanProperty(simoriState.display[row_num][col_num]))
                         }
                     }
                 }
