@@ -2,9 +2,9 @@ class PerformanceMode: SimoriMode {
     override fun GridPress(simoriState: SimoriState, row: Int, col: Int) {
         println("Mode: Performance, Button: Grid $row $col")
 
-        simoriState.display[row][col] = !simoriState.display[row][col]
+        simoriState.display[row][col].set(!simoriState.display[row][col].get())
 
-        val gridStateString = if (simoriState.display[row][col]) "ON" else "OFF"
+        val gridStateString = if (simoriState.display[row][col].get()) "ON" else "OFF"
         println("Turning $row $col $gridStateString")
     }
 

@@ -63,7 +63,7 @@ class MyView: View("SimoriON") {
                             }
 
                             gridButton.setPrefSize(32.0, 32.0)
-                            gridButton.bind(SimpleBooleanProperty(simoriState.display[row_num][col_num]))
+                            gridButton.bind(simoriState.display[row_num][col_num])
                         }
                     }
                 }

@@ -1,7 +1,13 @@
+import javafx.beans.property.SimpleBooleanProperty
+
 class SimoriState {
     var currentLayer = 0
     var simoriMode: SimoriMode = OnOffMode()
-    var display: Array<BooleanArray> = Array(16) { BooleanArray(16) }
+    var display: Array<Array<SimpleBooleanProperty>> = Array(16) {
+        row -> Array(16) {
+            col -> SimpleBooleanProperty(false)
+        }
+    }
 
     fun switchMode(simoriMode: SimoriMode) {
         this.simoriMode = simoriMode
@@ -10,7 +16,7 @@ class SimoriState {
     fun resetDisplay() {
         for (row in 0..15) {
             for (col in 0..15) {
-                display[row][col] = false
+                display[row][col].set(false)
             }
         }
     }
