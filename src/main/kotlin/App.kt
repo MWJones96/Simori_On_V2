@@ -1,45 +1,54 @@
+import javafx.beans.binding.Bindings
+import javafx.beans.property.SimpleBooleanProperty
 import javafx.collections.FXCollections
+import javafx.collections.ObservableList
+import javafx.geometry.Pos
+import javafx.scene.Node
 import tornadofx.*
-import java.awt.Color
 
 class SimoriOnApp: App(MyView::class)
 
 class MyView: View("SimoriON") {
     val simoriState: SimoriState = SimoriState()
-    val gridArray = FXCollections.observableArrayList(simoriState.display)
 
     override val root = vbox {
-
-        button("ON/OFF") {
+        button("ON") {
+            style = "-fx-background-radius: 256; margin: 100px;"
             action {
                 simoriState.OnOffPress()
             }
-        }
+        }.setPrefSize(48.0, 48.0)
+
 
         hbox {
-
             vbox {
                 button("L1") {
+                    style = "-fx-background-radius: 256;"
                     action {
                         simoriState.L1Press()
                     }
-                }
+                }.setPrefSize(48.0, 48.0)
                 button("L2") {
+                    style = "-fx-background-radius: 256;"
                     action {
                         simoriState.L2Press()
                     }
-                }
+                }.setPrefSize(48.0, 48.0)
                 button("L3") {
+                    style = "-fx-background-radius: 256;"
                     action {
                         simoriState.L3Press()
                     }
-                }
+                }.setPrefSize(48.0, 48.0)
                 button("L4") {
+                    style = "-fx-background-radius: 256;"
                     action {
                         simoriState.L4Press()
                     }
-                }
+                }.setPrefSize(48.0, 48.0)
             }
+
+            println(simoriState.display[0].size)
 
             gridpane {
                 for (row_num in 0..15) {
@@ -58,35 +67,40 @@ class MyView: View("SimoriON") {
 
             vbox {
                 button("R1") {
+                    style = "-fx-background-radius: 256;"
                     action {
                         simoriState.R1Press()
                     }
-                }
+                }.setPrefSize(48.0, 48.0)
                 button("R2") {
+                    style = "-fx-background-radius: 256;"
                     action {
                         simoriState.R2Press()
                     }
-                }
+                }.setPrefSize(48.0, 48.0)
                 button("R3") {
+                    style = "-fx-background-radius: 256;"
                     action {
                         simoriState.R3Press()
                     }
-                }
+                }.setPrefSize(48.0, 48.0)
                 button("R4") {
+                    style = "-fx-background-radius: 256;"
                     action {
                         simoriState.R4Press()
                     }
-                }
+                }.setPrefSize(48.0, 48.0)
             }
         }
 
         hbox {
             label("Display")
             button("OK") {
+                style = "-fx-background-radius: 256;"
                 action {
                     simoriState.OKPress()
                 }
-            }
+            }.setPrefSize(48.0, 48.0)
         }
     }
 }
