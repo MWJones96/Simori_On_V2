@@ -1,3 +1,4 @@
+import com.sun.javafx.binding.BidirectionalBinding.bind
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.BooleanExpression
 import javafx.beans.property.BooleanProperty
@@ -7,16 +8,23 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.geometry.Pos
 import javafx.scene.Node
+import javafx.scene.paint.Paint
 import tornadofx.*
+import java.awt.Color
 
 class SimoriOnApp: App(MyView::class)
 
 class MyView: View("SimoriON") {
     val simoriState: SimoriState = SimoriState()
 
+    init {
+        importStylesheet(Styles::class)
+    }
+
     override val root = vbox {
         button("ON") {
             style = "-fx-background-radius: 256; margin: 100px;"
+            toggleClass(Styles.modeButtonOn, simoriState.simoriMode !is OnOffMode)
             action {
                 simoriState.OnOffPress()
             }
@@ -55,15 +63,21 @@ class MyView: View("SimoriON") {
                 for (row_num in 0..15) {
                     row {
                         for (col_num in 0..15) {
-                            val gridButton = button("") {
-                                style = "-fx-background-radius: 256;"
+                            button("") {
+                                style {
+                                    backgroundRadius = multi(box(100.percent))
+                                    borderRadius = multi(box(100.percent))
+                                    borderColor += box(c("darkgrey"))
+                                    prefHeight = Dimension<Dimension.LinearUnits>(32.0, Dimension.LinearUnits.px)
+                                    prefWidth = Dimension<Dimension.LinearUnits>(32.0, Dimension.LinearUnits.px)
+                                }
+
+                                toggleClass(Styles.gridButtonOn, simoriState.display[row_num][col_num])
+
                                 action {
                                     simoriState.GridPress(row_num, col_num)
                                 }
                             }
-
-                            gridButton.setPrefSize(32.0, 32.0)
-                            gridButton.bind(simoriState.display[row_num][col_num])
                         }
                     }
                 }
@@ -108,6 +122,8 @@ class MyView: View("SimoriON") {
         }
     }
 }
+
+
 
 
 fun main(args: Array<String>) {
